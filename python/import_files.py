@@ -13,9 +13,9 @@ import_categories.execute("select * from categories")
 categories_select = import_categories.fetchall()
 
 #Importando Customer Demo
-import_customer_demo = con.cursor()
-import_customer_demo.execute("select * from customers_customer_demo")
-customer_demo_select = import_customer_demo.fetchall()
+import_customers_demo = con.cursor()
+import_customers_demo.execute("select * from customer_customer_demo ccd")
+customer_demo_select = import_customers_demo.fetchall()
 
 #Importando Customer Demographics
 import_customer_demographics = con.cursor()
