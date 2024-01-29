@@ -1,11 +1,19 @@
 from database_connection import db_connection
+import os
+from functions import date_function
 
 con = db_connection()
 
 #Importando Orders
 import_orders = con.cursor()
 import_orders.execute("SELECT * FROM orders")
+import_orders.description("SELECT * FROM orders")
 orders_select = import_orders.fetchall()
+print(orders_select)
+#directory = 'local_data/order_detail/'
+#archive_name = f'order_detail_{date_function()}.csv'
+#archive_path = os.path.join(directory, archive_name)
+
 
 #Importando Categorias
 import_categories = con.cursor()
@@ -72,8 +80,7 @@ import_us_states = con.cursor()
 import_us_states.execute("select * from us_states us")
 us_states_select = import_us_states.fetchall()
 
-#Exibição no console
-for res in orders_select:
-    print (res)
+#for orders in orders_select:
+#    print(orders)
 
 con.close()
